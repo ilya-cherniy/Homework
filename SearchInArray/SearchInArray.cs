@@ -52,6 +52,7 @@ namespace SearchInArray
             Console.WriteLine("Min element in array is: {0}", minElement);
             Console.WriteLine("Modified array:{0} ", String.Join(" ", array));
             Console.ReadLine();
+            //test
         }
     }
 }
