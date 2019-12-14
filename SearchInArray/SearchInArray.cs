@@ -21,12 +21,10 @@ namespace SearchInArray
             for (int i = 0; i < lengthOfArray; i++)
                 array[i] = random.Next(minBorder, maxBorder);
             Console.WriteLine("Generated array:{0} ", String.Join(" ", array));
-
             int maxElement = array[0];
             int maxPoint = 0;
             int minElement = array[1];
             int minPoint = 1;
-
             for (int i = 0; i < lengthOfArray; i++)
             {
                 if (array[i] > maxElement)
@@ -39,20 +37,14 @@ namespace SearchInArray
                     minElement = array[i];
                     minPoint = i;
                 }
-                if (array[i] == maxPoint)
-                {
-                    array[i] = minElement;
-                }
-                if (array[i] == minPoint)
-                {
-                    array[i] = maxElement;
-                }
             }
-            Console.WriteLine("Max element in array is: {0}", maxElement);
-            Console.WriteLine("Min element in array is: {0}", minElement);
+            Console.WriteLine("Max element in array is: {0}{1}{2}", maxElement," position ", maxPoint);
+            Console.WriteLine("Min element in array is: {0}{1}{2}", minElement," position ", minPoint);
+            int x = array[maxPoint];
+            array[maxPoint] = array[minPoint];
+            array[minPoint] = x;
             Console.WriteLine("Modified array:{0} ", String.Join(" ", array));
             Console.ReadLine();
-            //test
         }
     }
 }
