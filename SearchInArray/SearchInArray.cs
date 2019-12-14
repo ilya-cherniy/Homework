@@ -48,16 +48,6 @@ namespace SearchInArray
                     array[i] = maxElement;
                 }
             }
-
-
-            /*foreach (var item in array)
-            {
-                if (item > maxElement)
-                    maxElement = item;
-                if (item < minElement)
-                    minElement = item;
-            }
-            */
             Console.WriteLine("Max element in array is: {0}", maxElement);
             Console.WriteLine("Max element has position: {0}", maxPoint);
 
