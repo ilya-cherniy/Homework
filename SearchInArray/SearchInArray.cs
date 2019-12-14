@@ -49,11 +49,7 @@ namespace SearchInArray
                 }
             }
             Console.WriteLine("Max element in array is: {0}", maxElement);
-            Console.WriteLine("Max element has position: {0}", maxPoint);
-
             Console.WriteLine("Min element in array is: {0}", minElement);
-            Console.WriteLine("Min element has position: {0}", minPoint);
-
             Console.WriteLine("Modified array:{0} ", String.Join(" ", array));
             Console.ReadLine();
         }
