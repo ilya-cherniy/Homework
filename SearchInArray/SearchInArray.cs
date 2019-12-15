@@ -23,18 +23,34 @@ namespace SearchInArray
             Console.WriteLine("Generated array:{0} ", String.Join(" ", array));
             Console.WriteLine("Please select what to you use - odd or even numbers:");
             string typeOfNumbers = Console.ReadLine();
-            /*if ((minBorder % 2) == 0)
+            int maxElementOdd;
+            int maxElementEven;
+            int minElementOdd;
+            int minElementEven;
+            int maxPointOdd = 0;
+            int maxPointEven = 0;
+            int minPointOdd = 0;
+            int minPointEven = 0;
+            if ((minBorder % 2) == 0)
             {
-                int maxElementOdd = minBorder;
+                maxElementOdd = minBorder;
             }
             else
             {
-                int maxElementEven = minBorder;
-                int maxElementOdd = minBorder+1;
-            }*/
+                maxElementEven = minBorder;
+                maxElementOdd = minBorder+1;
+            }
+            if ((maxBorder % 2) == 0)
+            {
+                minElementOdd = maxBorder;
+            }
+            else
+            {
+                minElementEven = maxBorder;
+                minElementOdd = maxBorder + 1;
+            }
             switch (typeOfNumbers)
             {
-                
                 case "odd":
                     {
                         for (int i = 0; i < lengthOfArray; i++)
@@ -44,12 +60,12 @@ namespace SearchInArray
                                 if (array[i] > maxElementOdd)
                                 {
                                     maxElementOdd = array[i];
-                                    int maxPointOdd = i;
+                                    maxPointOdd = i;
                                 }
                                 if (array[i] < minElementOdd)
                                 {
                                     minElementOdd = array[i];
-                                    int minPointOdd = i;
+                                    minPointOdd = i;
                                 }
                             }
                         }
@@ -63,11 +79,6 @@ namespace SearchInArray
                     }
                 case "even":
                     {
-                        //code
-                        //int maxElementEven = 0;
-                        //int maxPointEven = 0;
-                       // int minElementEven = 0;
-                       // int minPointEven = 0;
                         for (int i = 0; i < lengthOfArray; i++)
                         {
                             if ((array[i] % 2) == 1)
