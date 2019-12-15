@@ -17,6 +17,10 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "OutputArray", "OutputArray\
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SearchInArray", "SearchInArray\SearchInArray.csproj", "{DBA0A138-A299-4852-B5FF-F58CDDAE9010}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ComparingArrays", "ComparingArrays\ComparingArrays.csproj", "{D174B63A-7AE0-4548-B4F3-EA195E8A1308}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SummDiagonalsOfMatrix", "SummDiagonalsOfMatrix\SummDiagonalsOfMatrix.csproj", "{B87D40BA-1D91-4675-8879-3D1EB6ECCD28}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -51,6 +55,14 @@ Global
 		{DBA0A138-A299-4852-B5FF-F58CDDAE9010}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{DBA0A138-A299-4852-B5FF-F58CDDAE9010}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{DBA0A138-A299-4852-B5FF-F58CDDAE9010}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D174B63A-7AE0-4548-B4F3-EA195E8A1308}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D174B63A-7AE0-4548-B4F3-EA195E8A1308}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D174B63A-7AE0-4548-B4F3-EA195E8A1308}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D174B63A-7AE0-4548-B4F3-EA195E8A1308}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B87D40BA-1D91-4675-8879-3D1EB6ECCD28}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B87D40BA-1D91-4675-8879-3D1EB6ECCD28}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B87D40BA-1D91-4675-8879-3D1EB6ECCD28}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B87D40BA-1D91-4675-8879-3D1EB6ECCD28}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
