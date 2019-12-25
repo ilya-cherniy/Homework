@@ -31,7 +31,6 @@ namespace Game21
             Seven,
             Six
         }
-
         private static void Main(string[] args)
         {
             Card[] deck = new Card[36];
@@ -48,6 +47,7 @@ namespace Game21
             //{
             //    Console.WriteLine(deck[i].weight + " " + deck[i].suit);
             //}
+                       
             int indexCard;
             Card[] tempCard = new Card[1];
             Random random = new Random();
@@ -64,6 +64,72 @@ namespace Game21
                 Console.WriteLine(deck[i].weight + " " + deck[i].suit);
 
             }
+
+            Card[] gamer = new Card[10];
+            Card[] computer = new Card[10];
+
+            int CardValue(string card)
+            {
+                int realValue = 0;
+                switch (card)
+                {
+                    case "Six":
+                        realValue = 6;
+                        break;
+                    case "Seven":
+                        realValue = 7;
+                        break;
+                    case "Eight":
+                        realValue = 8;
+                        break;
+                    case "Nine":
+                        realValue = 9;
+                        break;
+                    case "Ten":
+                        realValue = 10;
+                        break;
+                    case "Jack":
+                        realValue = 2;
+                        break;
+                    case "Lady":
+                        realValue = 3;
+                        break;
+                    case "King":
+                        realValue = 4;
+                        break;
+                    case "Ace":
+                        realValue = 11;
+                        break;
+                }
+                return realValue;
+            }
+            //give 2 cards to each gamer
+            for (int i = 0; i < 2; i++)
+            {
+                gamer[i] = deck[i];
+            }
+            int gamerScore = 0;
+            int computerScore = 0;
+            Console.WriteLine("****************************************");
+            for (int i = 0; i < 2; i++)
+            {
+                Console.WriteLine(gamer[i].weight + " " + gamer[i].suit);
+                string cardValue = (gamer[i].weight).ToString();
+                gamerScore = gamerScore + CardValue(cardValue);
+            }
+            Console.WriteLine(gamerScore);
+            Console.WriteLine("****************************************");
+            for (int i = 2; i < 4; i++)
+            {
+                computer[i] = deck[i];
+            }
+            for (int i = 2; i < 4; i++)
+            {
+                Console.WriteLine(computer[i].weight + " " + computer[i].suit);
+                string cardValue = (computer[i].weight).ToString();
+                computerScore = computerScore + CardValue(cardValue);
+            }
+            Console.WriteLine(computerScore);
             Console.ReadLine();
         }
     }
