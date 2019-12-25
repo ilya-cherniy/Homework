@@ -6,12 +6,8 @@ using System.Threading.Tasks;
 
 namespace LectOOPOne
 {
-    internal class Program
+    class Student : Human
     {
-        private static void Main(string[] args)
-        {
-            var t = new Human();
-        }
-            
+        public string UniversityName { get; set; }
     }
 }

@@ -6,12 +6,10 @@ using System.Threading.Tasks;
 
 namespace LectOOPOne
 {
-    internal class Program
+    abstract class Human
     {
-        private static void Main(string[] args)
-        {
-            var t = new Human();
-        }
-            
+        public string Name { get; set; }
+        public int Age { get; set; }
+        public int Weight { get; set; }
     }
 }

@@ -6,12 +6,8 @@ using System.Threading.Tasks;
 
 namespace LectOOPOne
 {
-    internal class Program
+    class Employee : Human
     {
-        private static void Main(string[] args)
-        {
-            var t = new Human();
-        }
-            
+        public string CompanyName { get; set; }
     }
 }
