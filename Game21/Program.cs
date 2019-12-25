@@ -103,6 +103,33 @@ namespace Game21
                 }
                 return realValue;
             }
+
+            Console.WriteLine("Please select 0 or 1 to decide who will start firts - Gamer or Computer");
+            string gamerChoice = Console.ReadLine();
+            int gCoin = -1;
+            switch (gamerChoice)
+            {
+                case "0":
+                    gCoin = 0;
+                    break;
+                case "1":
+                    gCoin = 1;
+                    break;
+                default:
+                    Console.WriteLine("Please input correct decision");
+                    break;
+            }
+            int randomCoin = random.Next(2);
+            Console.WriteLine("Random coin: {0}",randomCoin);
+            if (gCoin == randomCoin)
+            {
+                Console.WriteLine("Gamer first");
+            }
+            else
+            {
+                Console.WriteLine("PC first");
+            }
+
             //give 2 cards to each gamer
             for (int i = 0; i < 2; i++)
             {
@@ -130,6 +157,30 @@ namespace Game21
                 computerScore = computerScore + CardValue(cardValue);
             }
             Console.WriteLine(computerScore);
+
+            Console.WriteLine("what do you want? Get [G] one more card or stop [S] receiving cards?");
+            bool action = true;
+            string decision = Console.ReadLine();
+            switch (decision)
+            {
+                case "G":
+                    action = true;
+                    break;
+                case "S":
+                    action = false;
+                    break;
+                default:
+                    Console.WriteLine("Please input correct decision");
+                    break;
+            }
+            //while (!action)
+            //{
+
+
+            //}
+               
+
+
             Console.ReadLine();
         }
     }
