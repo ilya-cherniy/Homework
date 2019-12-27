@@ -16,6 +16,11 @@ namespace Vehicles
             return Power;
         }
 
+        public virtual int ChangeСarrying(int Сarrying)
+        {
+            return Сarrying;
+        }
+
         public object Clone()
         {
             return this.MemberwiseClone();

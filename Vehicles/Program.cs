@@ -7,12 +7,11 @@ namespace Vehicles
         static void Main(string[] args)
         {
             var carOne = new Car { Brand = "Volvo", Power = 200, Weight = 1500 };
-            var carTwo = new Car { Brand = "Nissan", Power = 150, Weight = 1200 };
-            var carThree = (Car)carOne.Clone();
-            carThree.GetCarInfo();
-            carThree.Power = carThree.ChangePower(carThree.Power);
+            var carTwo = (Car)carOne.Clone();
+            carTwo.GetCarInfo();
+            carTwo.Power = carTwo.ChangePower(carTwo.Power);
             Console.WriteLine("Car after modification:");
-            carThree.GetCarInfo();
+            carTwo.GetCarInfo();
             Console.WriteLine("*********************************");
             var lorryOne = new Lorry { Brand = "Ford", Power = 350, Weight = 3000, Сarrying = 2400 };
             var lorryTwo = (Lorry)lorryOne.Clone();

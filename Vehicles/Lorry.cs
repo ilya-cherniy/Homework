@@ -8,7 +8,7 @@ namespace Vehicles
     {
         public int Сarrying { get; set; }
 
-        public int ChangeСarrying (int Сarrying)
+        public override int ChangeСarrying (int Сarrying)
         {
             Сarrying = Сarrying - 200;
             return Сarrying;
