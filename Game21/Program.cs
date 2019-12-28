@@ -104,24 +104,39 @@ namespace Game21
                 return realValue;
             }
 
-            Console.WriteLine("Please select 0 or 1 to decide who will start firts - Gamer or Computer");
-            string gamerChoice = Console.ReadLine();
-            int gCoin = -1;
-            switch (gamerChoice)
+            Console.WriteLine("Please select [0] or [1] to decide who will start firts - Gamer or Computer");
+            string gamerInput = Console.ReadLine();
+            int gamerChoice = -1;
+            bool correctInput = false;
+            while (!correctInput)
             {
-                case "0":
-                    gCoin = 0;
-                    break;
-                case "1":
-                    gCoin = 1;
-                    break;
-                default:
-                    Console.WriteLine("Please input correct decision");
-                    break;
+                if (Int32.TryParse(gamerInput, out gamerChoice) && (gamerChoice == 0 || gamerChoice == 1))
+                {
+                    Console.WriteLine(gamerChoice);
+                    correctInput = true;
+                }
+                else
+                {
+                    Console.WriteLine("Entered value is not correct");
+                }
             }
+
+            //switch (gamerChoice)
+            //{
+            //    case 0:
+            //        gamerChoice = 0;
+            //        break;
+            //    case 1:
+            //        gamerChoice = 1;
+            //        break;
+            //    default:
+            //        Console.WriteLine("Please input correct decision");
+            //        return true;
+            //        break;
+            //}
             int randomCoin = random.Next(2);
-            Console.WriteLine("Random coin: {0}",randomCoin);
-            if (gCoin == randomCoin)
+            Console.WriteLine("Random coin: {0}", randomCoin);
+            if (gamerChoice == randomCoin)
             {
                 Console.WriteLine("Gamer first");
             }
@@ -129,6 +144,11 @@ namespace Game21
             {
                 Console.WriteLine("PC first");
             }
+
+
+            //string gamerChoice = Console.ReadLine();
+            //int gCoin = -1;
+
 
             //give 2 cards to each gamer
             for (int i = 0; i < 2; i++)
@@ -170,7 +190,7 @@ namespace Game21
                     action = false;
                     break;
                 default:
-                    Console.WriteLine("Please input correct decision");
+                    Console.WriteLine("Please input correct letter");
                     break;
             }
             //while (!action)
