@@ -4,15 +4,15 @@ using System.Text;
 
 namespace Flowers
 {
-    public class Tulip : Flowers
+    class Rose : Flowers
     {
         public string Type
         {
             get
             {
-                return "Tulip";
+                return "Rose";
             }
         }
- 
+
     }
 }
