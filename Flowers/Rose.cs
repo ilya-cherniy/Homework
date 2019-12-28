@@ -6,13 +6,7 @@ namespace Flowers
 {
     class Rose : Flowers
     {
-        public string Type
-        {
-            get
-            {
-                return "Rose";
-            }
-        }
+        public override string Name { get => "Rose"; }
 
     }
 }

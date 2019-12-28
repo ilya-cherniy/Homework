@@ -4,14 +4,8 @@ using System.Text;
 
 namespace Flowers
 {
-    class Lily : Flowers
+    public class Lily : Flowers
     {
-        public string Type
-        {
-            get
-            {
-                return "Lily";
-            }
-        }
+        public override string Name { get => "Lily"; }
     }
 }

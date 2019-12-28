@@ -33,7 +33,7 @@ namespace Flowers
             Console.WriteLine("Bouquet contains following flowers:");
             foreach (Flowers flower in this.Flowers)
             {
-                Console.WriteLine("* {0} - {1}", flower.GetType(),flower.Price);
+                Console.WriteLine("* {0} - {1}", flower.Name,flower.Price);
             }
         }
     }
