@@ -20,10 +20,9 @@ namespace Flowers
             this.Flowers = new List<Flowers> { flowerOne, flowerTwo, flowerThree, flowerFour, flowerFour};
 
             this.NumberOfFlowers = this.Flowers.Count;
-            this.Price = 0;
             for (int i = 0; i < this.NumberOfFlowers; i++)
             {
-                this.Price = this.Price + this.Flowers[i].Price;
+                this.Price += this.Flowers[i].Price;
             }
         }
 
@@ -32,7 +31,7 @@ namespace Flowers
             Console.WriteLine("Bouquet contains {0} flowers", this.NumberOfFlowers);
             Console.WriteLine("Bouquet price: {0}", this.Price);
             Console.WriteLine("Bouquet contains following flowers:");
-            foreach (var flower in this.Flowers)
+            foreach (Flowers flower in this.Flowers)
             {
                 Console.WriteLine("* {0} - {1}", flower.GetType(),flower.Price);
             }

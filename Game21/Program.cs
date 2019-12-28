@@ -121,19 +121,6 @@ namespace Game21
                 }
             }
 
-            //switch (gamerChoice)
-            //{
-            //    case 0:
-            //        gamerChoice = 0;
-            //        break;
-            //    case 1:
-            //        gamerChoice = 1;
-            //        break;
-            //    default:
-            //        Console.WriteLine("Please input correct decision");
-            //        return true;
-            //        break;
-            //}
             int randomCoin = random.Next(2);
             Console.WriteLine("Random coin: {0}", randomCoin);
             if (gamerChoice == randomCoin)
@@ -151,56 +138,66 @@ namespace Game21
 
 
             //give 2 cards to each gamer
-            for (int i = 0; i < 2; i++)
-            {
-                gamer[i] = deck[i];
-            }
+            Console.WriteLine("****************************************");
             int gamerScore = 0;
             int computerScore = 0;
-            Console.WriteLine("****************************************");
-            for (int i = 0; i < 2; i++)
+            for (int i = 0; i < 4; i++)
             {
+                if (i % 2 == 0)
+                {
+                    gamer[i] = deck[i];
+                    //Console.WriteLine(gamer[i].weight + " " + gamer[i].suit);
+                    //string cardValue = (gamer[i].weight).ToString();
+                    //gamerScore = gamerScore + CardValue(cardValue);
+
+                }
+                else
+                {
+                    computer[i] = deck[i];
+                    //Console.WriteLine(computer[i].weight + " " + computer[i].suit);
+                    //string cardValue = (computer[i].weight).ToString();
+                    //computerScore = computerScore + CardValue(cardValue);
+                }
                 Console.WriteLine(gamer[i].weight + " " + gamer[i].suit);
-                string cardValue = (gamer[i].weight).ToString();
-                gamerScore = gamerScore + CardValue(cardValue);
-            }
-            Console.WriteLine(gamerScore);
-            Console.WriteLine("****************************************");
-            for (int i = 2; i < 4; i++)
-            {
-                computer[i] = deck[i];
-            }
-            for (int i = 2; i < 4; i++)
-            {
+                string cardValuePlayer1 = (gamer[i].weight).ToString();
+                gamerScore = gamerScore + CardValue(cardValuePlayer1);
                 Console.WriteLine(computer[i].weight + " " + computer[i].suit);
-                string cardValue = (computer[i].weight).ToString();
-                computerScore = computerScore + CardValue(cardValue);
+                string cardValuePlayer2 = (computer[i].weight).ToString();
+                computerScore = computerScore + CardValue(cardValuePlayer2);
             }
-            Console.WriteLine(computerScore);
 
-            Console.WriteLine("what do you want? Get [G] one more card or stop [S] receiving cards?");
-            bool action = true;
-            string decision = Console.ReadLine();
-            switch (decision)
+            Console.WriteLine("Gamer score: {0}",gamerScore);
+            Console.WriteLine("Computer score: {0}",computerScore);
+            Console.WriteLine("****************************************");
+            //Verify if someone has two Aces
+            if (gamerScore == 22 || gamerScore == 21)
             {
-                case "G":
-                    action = true;
-                    break;
-                case "S":
-                    action = false;
-                    break;
-                default:
-                    Console.WriteLine("Please input correct letter");
-                    break;
+                Console.WriteLine("Gamer WINS");
             }
-            //while (!action)
-            //{
+            else if (computerScore == 22 || gamerScore == 21)
+            {
+                Console.WriteLine("Computer WINS");
 
+            }
+            else
+            {
+                Console.WriteLine("what do you want? Get [G] one more card or stop [S] receiving cards?");
+                string gamerDecision = Console.ReadLine();
+                if (gamerDecision == "G")
+                {
+                    gamer[2] = deck[4];
+                    Console.WriteLine(gamer[2].weight + " " + gamer[2].suit);
+                    string cardValue = (gamer[2].weight).ToString();
+                    gamerScore = gamerScore + CardValue(cardValue);
+                    Console.WriteLine("Gamer score: {0}", gamerScore);
+                }
 
-            //}
-               
-
-
+                int computerDecision = random.Next(2);
+                if (computerScore <= 15)
+                {
+                    //
+                }
+            }  
             Console.ReadLine();
         }
     }
