@@ -6,9 +6,7 @@ namespace Flowers
 {
     public abstract class Flowers
     {
-        public int Price { get; set; }
+        public abstract int Price { get; }
         public abstract string Name { get; }
-
-
     }
 }

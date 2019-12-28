@@ -7,6 +7,7 @@ namespace Flowers
     class Rose : Flowers
     {
         public override string Name { get => "Rose"; }
+        public override int Price { get => 30; }
 
     }
 }

@@ -12,12 +12,13 @@ namespace Flowers
 
         public void CreateBouquet()
         {
-            var flowerOne = new Tulip {Price = 10};
-            var flowerTwo = new Rose { Price = 30 };
-            var flowerThree = new Lily { Price = 12 };
-            var flowerFour = new Pion { Price = 7 };
+            var flowerOne = new Tulip { };
+            var flowerTwo = new Rose { };
+            var flowerThree = new Lily { };
+            var flowerFour = new Pion { };
+            var flowerFive = new Rose { };
  
-            this.Flowers = new List<Flowers> { flowerOne, flowerTwo, flowerThree, flowerFour, flowerFour};
+            this.Flowers = new List<Flowers> { flowerOne, flowerTwo, flowerThree, flowerFour, flowerFive };
 
             this.NumberOfFlowers = this.Flowers.Count;
             for (int i = 0; i < this.NumberOfFlowers; i++)
