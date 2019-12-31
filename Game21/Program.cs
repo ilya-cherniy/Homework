@@ -48,6 +48,9 @@ namespace Game21
             Random random = new Random();
             bool gamerStop = false;
             bool computerStop = false;
+            int playerWins = 0;
+            bool continueGame = true;
+            string userInput = "";
 
             //CardValue method will be used to calculate scores
             int CardValue(string card)
@@ -160,132 +163,165 @@ namespace Game21
                 return computerStop;
             }
 
-            //generate an ordered deck of cards
-            for (int i = 0; i < 9; i++)
+            int PlayGame()
             {
-                for (int j = 0; j < 4; j++)
+                //erase all variables
+                indexInDeck = 0;
+                gamerScore = 0;
+                computerScore = 0;
+                indexCard = 0;
+                gamerChoice = 0;
+                correctInput = false;
+                gamerStop = false;
+                computerStop = false;
+                playerWins = 0;
+                //generate an ordered deck of cards
+                for (int i = 0; i < 9; i++)
                 {
-                    deck[(i * 4) + j] = new Card();
-                    deck[(i * 4) + j].weight = (Weight)i;
-                    deck[(i * 4) + j].suit = (Suits)j;
-                }
-            }
-            //Print deck of cards
-            //for (int i = 0; i < 36; i++)
-            //{
-            //    Console.WriteLine(deck[i].weight + " " + deck[i].suit);
-            //}
-
-            //shuffle a deck of cards
-            Card[] tempCard = new Card[1];
-
-            for (int j = 35; j > 0; j--)
-            {
-                indexCard = random.Next(j + 1);
-                tempCard[0] = deck[j];
-                deck[j] = deck[indexCard];
-                deck[indexCard] = tempCard[0];
-            }
-            //print shuffled deck
-            //for (int i = 0; i < 36; i++)
-            //{
-            //    Console.WriteLine(deck[i].weight + " " + deck[i].suit);
-            //}
-            Console.WriteLine("Please select [0] or [1] to decide who will start firts - Gamer or Computer");
-            while (!correctInput)
-            {
-                string gamerInput = Console.ReadLine();
-                if (Int32.TryParse(gamerInput, out gamerChoice) && (gamerChoice == 0 || gamerChoice == 1))
-                {
-                    correctInput = true;
-                }
-                else
-                {
-                    Console.WriteLine("Entered value is not correct. Please try again: ");
-                }
-            }
-            int randomCoin = random.Next(2);
-            Console.WriteLine("Random coin: {0}", randomCoin);
-            if (gamerChoice == randomCoin)
-            {
-                Console.WriteLine("Gamer first");
-                firstPlayer = "gamer";
-                secondPlayer = "computer";
-            }
-            else
-            {
-                Console.WriteLine("Computer first");
-                firstPlayer = "computer";
-                secondPlayer = "gamer";
-            }
-
-            //give 2 cards to each gamer
-            Console.WriteLine("****************************************");
-            DealCards(2, firstPlayer);
-            DealCards(2, secondPlayer);
-            Console.WriteLine("Gamer score: {0}",gamerScore);
-            //Console.WriteLine("Computer score: {0}",computerScore);
-            Console.WriteLine("****************************************");
-            //Verify if someone has two Aces
-            if (gamerScore == 22 || gamerScore == 21)
-            {
-                Console.WriteLine("Gamer WINS");
-            }
-            else if (computerScore == 22 || computerScore == 21)
-            {
-                Console.WriteLine("Computer WINS");
-
-            }
-            else
-            {
-                do
-                {
-                    if (firstPlayer == "gamer")
+                    for (int j = 0; j < 4; j++)
                     {
-                        GamerDecision();
-                        ComputerDecision();
+                        deck[(i * 4) + j] = new Card();
+                        deck[(i * 4) + j].weight = (Weight)i;
+                        deck[(i * 4) + j].suit = (Suits)j;
+                    }
+                }
+                //Print deck of cards
+                //for (int i = 0; i < 36; i++)
+                //{
+                //    Console.WriteLine(deck[i].weight + " " + deck[i].suit);
+                //}
+                //shuffle a deck of cards
+                Card[] tempCard = new Card[1];
+
+                for (int j = 35; j > 0; j--)
+                {
+                    indexCard = random.Next(j + 1);
+                    tempCard[0] = deck[j];
+                    deck[j] = deck[indexCard];
+                    deck[indexCard] = tempCard[0];
+                }
+                //print shuffled deck
+                //for (int i = 0; i < 36; i++)
+                //{
+                //    Console.WriteLine(deck[i].weight + " " + deck[i].suit);
+                //}
+                Console.WriteLine("Please select [0] or [1] to decide who will start firts - Gamer or Computer");
+                while (!correctInput)
+                {
+                    string gamerInput = Console.ReadLine();
+                    if (Int32.TryParse(gamerInput, out gamerChoice) && (gamerChoice == 0 || gamerChoice == 1))
+                    {
+                        correctInput = true;
                     }
                     else
                     {
-                        ComputerDecision();
-                        GamerDecision();
+                        Console.WriteLine("Entered value is not correct. Please try again: ");
                     }
-                    Console.WriteLine("Gamer score: {0}", gamerScore);
-                    //Console.WriteLine("Computer score: {0}", computerScore);
-                    if (((gamerStop == true) && (computerStop == true)) || ((gamerScore >= 21) || (computerScore >= 21)))
+                }
+                int randomCoin = random.Next(2);
+                Console.WriteLine("Random coin: {0}", randomCoin);
+                if (gamerChoice == randomCoin)
+                {
+                    Console.WriteLine("Gamer first");
+                    firstPlayer = "gamer";
+                    secondPlayer = "computer";
+                }
+                else
+                {
+                    Console.WriteLine("Computer first");
+                    firstPlayer = "computer";
+                    secondPlayer = "gamer";
+                }
+                //give 2 cards to each gamer
+                Console.WriteLine("****************************************");
+                DealCards(2, firstPlayer);
+                DealCards(2, secondPlayer);
+                Console.WriteLine("Gamer score: {0}", gamerScore);
+                //Console.WriteLine("Computer score: {0}",computerScore);
+                Console.WriteLine("****************************************");
+                //Verify if someone has two Aces
+                if (gamerScore == 22 || gamerScore == 21)
+                {
+                    Console.WriteLine("Gamer WINS");
+                }
+                else if (computerScore == 22 || computerScore == 21)
+                {
+                    Console.WriteLine("Computer WINS");
+                }
+                else
+                {
+                    do
                     {
-                        Console.WriteLine("GAME IS OVER");
-                        if (gamerScore==21)
-                            Console.WriteLine("Gamer WINS with score: {0}", gamerScore);
-                        if (computerScore==21)
-                            Console.WriteLine("Computer WINS with score: {0}", computerScore);
-                        if ((gamerScore>21) && (computerScore>21))
+                        if (firstPlayer == "gamer")
                         {
-                            if (computerScore > gamerScore)
+                            GamerDecision();
+                            ComputerDecision();
+                        }
+                        else
+                        {
+                            ComputerDecision();
+                            GamerDecision();
+                        }
+                        Console.WriteLine("Gamer score: {0}", gamerScore);
+                        //Console.WriteLine("Computer score: {0}", computerScore);
+                        if (((gamerStop == true) && (computerStop == true)) || ((gamerScore >= 21) || (computerScore >= 21)))
+                        {
+                            Console.WriteLine("GAME IS OVER");
+                            if (gamerScore == 21)
                                 Console.WriteLine("Gamer WINS with score: {0}", gamerScore);
-                            else
+                            if (computerScore == 21)
                                 Console.WriteLine("Computer WINS with score: {0}", computerScore);
-                        }
-                        if ((gamerScore < 21) && (computerScore < 21))
-                        {
-                            if (computerScore > gamerScore)
+                            if ((gamerScore > 21) && (computerScore > 21))
+                            {
+                                if (computerScore > gamerScore)
+                                    Console.WriteLine("Gamer WINS with score: {0}", gamerScore);
+                                else
+                                    Console.WriteLine("Computer WINS with score: {0}", computerScore);
+                            }
+                            if ((gamerScore < 21) && (computerScore < 21))
+                            {
+                                if (computerScore > gamerScore)
+                                    Console.WriteLine("Computer WINS with score: {0}", computerScore);
+                                else
+                                    Console.WriteLine("Gamer WINS with score: {0}", gamerScore);
+                            }
+                            if ((gamerScore < 21) && (computerScore > 21))
+                            {
+                                Console.WriteLine("Gamer WINS with score: {0}", gamerScore);
+                            }
+                            if ((gamerScore > 21) && (computerScore < 21))
+                            {
                                 Console.WriteLine("Computer WINS with score: {0}", computerScore);
-                            else
-                                Console.WriteLine("Gamer WINS with score: {0}", gamerScore);
+                            }
+                            break;
                         }
-                        if ((gamerScore < 21) && (computerScore > 21))
-                        {
-                                Console.WriteLine("Gamer WINS with score: {0}", gamerScore);
-                        }
-                        if ((gamerScore > 21) && (computerScore < 21))
-                        {
-                            Console.WriteLine("Computer WINS with score: {0}", computerScore);
-                        }
-                        break;
-                    }
-                } while (true);
+                    } while (true);
+                }
+                return playerWins;
             }
-                Console.ReadLine();
+            while (continueGame)
+            {
+                PlayGame();
+                Console.WriteLine("Do you want to start new game? Please enter [y]/[n]");
+                bool correctRestart = false;
+                while (!correctRestart)
+                {
+                    userInput = Console.ReadLine();
+                    if ((userInput == "y") || (userInput == "n"))
+                    {
+                        correctRestart = true;
+                    }
+                    else
+                    {
+                        Console.WriteLine("Entered value is not correct. Please try again: ");
+                    }
+                }
+             if (userInput == "y")
+                    continueGame = true;
+             else
+                    continueGame = false;
+            }
+         Console.ReadLine();
         }
     }
 }
