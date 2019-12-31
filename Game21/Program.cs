@@ -48,7 +48,8 @@ namespace Game21
             Random random = new Random();
             bool gamerStop = false;
             bool computerStop = false;
-            int playerWins = 0;
+            int gamerWins = 0;
+            int gamesNumbers = 0;
             bool continueGame = true;
             string userInput = "";
 
@@ -174,7 +175,6 @@ namespace Game21
                 correctInput = false;
                 gamerStop = false;
                 computerStop = false;
-                playerWins = 0;
                 //generate an ordered deck of cards
                 for (int i = 0; i < 9; i++)
                 {
@@ -242,11 +242,12 @@ namespace Game21
                 //Verify if someone has two Aces
                 if (gamerScore == 22 || gamerScore == 21)
                 {
-                    Console.WriteLine("Gamer WINS");
+                    Console.WriteLine("Gamer WINS with score: {0}", gamerScore);
+                    gamerWins ++;
                 }
                 else if (computerScore == 22 || computerScore == 21)
                 {
-                    Console.WriteLine("Computer WINS");
+                    Console.WriteLine("Computer WINS with score: {0}", computerScore);
                 }
                 else
                 {
@@ -266,15 +267,24 @@ namespace Game21
                         //Console.WriteLine("Computer score: {0}", computerScore);
                         if (((gamerStop == true) && (computerStop == true)) || ((gamerScore >= 21) || (computerScore >= 21)))
                         {
+                            Console.WriteLine("****************************************");
                             Console.WriteLine("GAME IS OVER");
+                            Console.WriteLine("****************************************");
                             if (gamerScore == 21)
+                            {
                                 Console.WriteLine("Gamer WINS with score: {0}", gamerScore);
-                            if (computerScore == 21)
+                                gamerWins++;
+                            }
+
+                                if (computerScore == 21)
                                 Console.WriteLine("Computer WINS with score: {0}", computerScore);
                             if ((gamerScore > 21) && (computerScore > 21))
                             {
                                 if (computerScore > gamerScore)
+                                {
                                     Console.WriteLine("Gamer WINS with score: {0}", gamerScore);
+                                    gamerWins++;
+                                }
                                 else
                                     Console.WriteLine("Computer WINS with score: {0}", computerScore);
                             }
@@ -283,11 +293,15 @@ namespace Game21
                                 if (computerScore > gamerScore)
                                     Console.WriteLine("Computer WINS with score: {0}", computerScore);
                                 else
+                                {
                                     Console.WriteLine("Gamer WINS with score: {0}", gamerScore);
+                                    gamerWins++;
+                                }
                             }
                             if ((gamerScore < 21) && (computerScore > 21))
                             {
                                 Console.WriteLine("Gamer WINS with score: {0}", gamerScore);
+                                gamerWins++;
                             }
                             if ((gamerScore > 21) && (computerScore < 21))
                             {
@@ -297,11 +311,12 @@ namespace Game21
                         }
                     } while (true);
                 }
-                return playerWins;
+                return gamerWins;
             }
             while (continueGame)
             {
                 PlayGame();
+                //gamerWins += gamerWins;
                 Console.WriteLine("Do you want to start new game? Please enter [y]/[n]");
                 bool correctRestart = false;
                 while (!correctRestart)
@@ -316,11 +331,15 @@ namespace Game21
                         Console.WriteLine("Entered value is not correct. Please try again: ");
                     }
                 }
-             if (userInput == "y")
+             gamesNumbers++;
+                if (userInput == "y")
                     continueGame = true;
              else
                     continueGame = false;
             }
+         Console.WriteLine("You play {0} times", gamesNumbers);
+         Console.WriteLine("Player wins {0} times", gamerWins);
+         Console.WriteLine("Computer wins {0} times", gamesNumbers-gamerWins);
          Console.ReadLine();
         }
     }
