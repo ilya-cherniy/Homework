@@ -175,6 +175,7 @@ namespace Game21
                 correctInput = false;
                 gamerStop = false;
                 computerStop = false;
+
                 //generate an ordered deck of cards
                 for (int i = 0; i < 9; i++)
                 {
@@ -190,6 +191,7 @@ namespace Game21
                 //{
                 //    Console.WriteLine(deck[i].weight + " " + deck[i].suit);
                 //}
+
                 //shuffle a deck of cards
                 Card[] tempCard = new Card[1];
 
@@ -316,7 +318,6 @@ namespace Game21
             while (continueGame)
             {
                 PlayGame();
-                //gamerWins += gamerWins;
                 Console.WriteLine("Do you want to start new game? Please enter [y]/[n]");
                 bool correctRestart = false;
                 while (!correctRestart)
