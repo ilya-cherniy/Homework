@@ -39,7 +39,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Vehicles", "Vehicles\Vehicl
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Flowers", "Flowers\Flowers.csproj", "{DC24E55E-DE4B-4FA0-800E-1D5707AC6426}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CollectionsLect", "CollectionsLect\CollectionsLect.csproj", "{4A183EF7-AA40-4F50-8258-F38E83996036}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CollectionsLect", "CollectionsLect\CollectionsLect.csproj", "{4A183EF7-AA40-4F50-8258-F38E83996036}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CollectionHomework", "CollectionHomework\CollectionHomework.csproj", "{E2889A9E-6802-441E-A5B1-1BC766637CC0}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -123,6 +125,10 @@ Global
 		{4A183EF7-AA40-4F50-8258-F38E83996036}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{4A183EF7-AA40-4F50-8258-F38E83996036}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{4A183EF7-AA40-4F50-8258-F38E83996036}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E2889A9E-6802-441E-A5B1-1BC766637CC0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E2889A9E-6802-441E-A5B1-1BC766637CC0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E2889A9E-6802-441E-A5B1-1BC766637CC0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E2889A9E-6802-441E-A5B1-1BC766637CC0}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
