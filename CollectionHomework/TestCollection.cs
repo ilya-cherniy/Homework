@@ -15,14 +15,10 @@ namespace CollectionHomework
             Random rnd = new Random();
             for (var i = 0; i<data.Length; i++)
             {
-                data[i] = rnd.Next(0,10);
-                if (isSimple(data[i]))
+                data[i] = rnd.Next(0,100);
+                if (!isSimple(data[i]))
                 {
-                    data[i] = data[i];
-                }
-                else
-                {
-                    data[i] = 0; 
+                    data[i] = 0;
                 }
              }
         }
@@ -38,10 +34,11 @@ namespace CollectionHomework
         }
         private static bool isSimple(int N)
         {
-            //чтобы убедиться в том простое число или нет, достаточно проверить не делится ли число на числа до его половины
+            if (N < 2)
+                return false;
             for (int i = 2; i <= (int)(N / 2); i++)
             {
-                if ((N % i == 0)||(N==1))
+                if (N % i == 0)
                     return false;
             }
             return true;
