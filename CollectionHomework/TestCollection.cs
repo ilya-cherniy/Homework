@@ -15,7 +15,7 @@ namespace CollectionHomework
             Random rnd = new Random();
             for (var i = 0; i<data.Length; i++)
             {
-                data[i] = rnd.Next(0,100);
+                data[i] = rnd.Next(0,10);
                 if (isSimple(data[i]))
                 {
                     data[i] = data[i];
@@ -41,7 +41,7 @@ namespace CollectionHomework
             //чтобы убедиться в том простое число или нет, достаточно проверить не делится ли число на числа до его половины
             for (int i = 2; i <= (int)(N / 2); i++)
             {
-                if (N % i == 0)
+                if ((N % i == 0)||(N==1))
                     return false;
             }
             return true;
