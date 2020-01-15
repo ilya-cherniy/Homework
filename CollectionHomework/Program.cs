@@ -11,12 +11,12 @@ namespace CollectionHomework
         static void Main(string[] args)
         {
             var t = new TestCollection();
-            Console.Write("{");
             foreach (var item in t)
             {
-                Console.Write(" {0}",item);
+                if (item!=0)
+                Console.Write("{0} ",item);
             }
-            Console.WriteLine(" }");
+            Console.WriteLine();
         }
     }
 }
