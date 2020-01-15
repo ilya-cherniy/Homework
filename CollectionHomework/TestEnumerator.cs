@@ -9,10 +9,10 @@ namespace CollectionHomework
 {
     class TestEnumerator : IEnumerator<int>
     {
-        private List<int> data;
+        private int[] data;
         private int pos = -1;
 
-        public TestEnumerator(List<int> data)
+        public TestEnumerator(int[] data)
         {
             this.data = data;
         }
@@ -21,7 +21,7 @@ namespace CollectionHomework
         {
             get
             {
-                if (pos == -1 || pos >=data.Count)
+                if (pos == -1 || pos >=data.Length)
                 {
                     throw new Exception();
                 }
@@ -38,7 +38,7 @@ namespace CollectionHomework
 
         public bool MoveNext()
         {
-            if (pos < data.Count - 1)
+            if (pos < data.Length - 1)
             {
                 pos++;
                 return true;

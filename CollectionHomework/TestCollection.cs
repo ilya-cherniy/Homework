@@ -9,15 +9,22 @@ namespace CollectionHomework
 {
     class TestCollection : IEnumerable<int>
     {
-        List<int> data;
+        int[] data = new int[10];
         public TestCollection()
         {
             Random rnd = new Random();
-            data = new List<int>(10);
-            for (var i = 0; i<10; i++)
+            for (var i = 0; i<data.Length; i++)
             {
-                data.Add(rnd.Next(0,100));
-            }
+                data[i] = rnd.Next(0,100);
+                if (isSimple(data[i]))
+                {
+                    data[i] = data[i];
+                }
+                else
+                {
+                    data[i] = 0; 
+                }
+             }
         }
 
         public IEnumerator<int> GetEnumerator()
@@ -28,6 +35,16 @@ namespace CollectionHomework
         IEnumerator IEnumerable.GetEnumerator()
         {
             throw new NotImplementedException();
+        }
+        private static bool isSimple(int N)
+        {
+            //чтобы убедиться в том простое число или нет, достаточно проверить не делится ли число на числа до его половины
+            for (int i = 2; i <= (int)(N / 2); i++)
+            {
+                if (N % i == 0)
+                    return false;
+            }
+            return true;
         }
     }
 }
