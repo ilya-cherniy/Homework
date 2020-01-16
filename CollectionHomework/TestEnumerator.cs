@@ -41,6 +41,10 @@ namespace CollectionHomework
             if (pos < data.Length - 1)
             {
                 pos++;
+                if (!MathHelper.isSimple(data[pos]))
+                    {
+                       return MoveNext();
+                    }
                 return true;
             }
             else { return false; }

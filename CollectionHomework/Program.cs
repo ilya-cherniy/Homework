@@ -14,7 +14,6 @@ namespace CollectionHomework
             Console.WriteLine("This is the list of simple digits from random int array [10]:");
             foreach (var item in t)
             {
-                if (item!=0)
                 Console.Write("{0} ",item);
             }
             Console.WriteLine();

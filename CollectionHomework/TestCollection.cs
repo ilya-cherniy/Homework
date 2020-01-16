@@ -16,10 +16,6 @@ namespace CollectionHomework
             for (var i = 0; i<data.Length; i++)
             {
                 data[i] = rnd.Next(0,100);
-                if (!isSimple(data[i]))
-                {
-                    data[i] = 0;
-                }
              }
         }
 
@@ -31,17 +27,6 @@ namespace CollectionHomework
         IEnumerator IEnumerable.GetEnumerator()
         {
             throw new NotImplementedException();
-        }
-        private static bool isSimple(int N)
-        {
-            if (N < 2)
-                return false;
-            for (int i = 2; i <= (int)(N / 2); i++)
-            {
-                if (N % i == 0)
-                    return false;
-            }
-            return true;
         }
     }
 }
