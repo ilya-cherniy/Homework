@@ -1,9 +1,6 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace CollectionHomework
 {
@@ -41,7 +38,7 @@ namespace CollectionHomework
             if (pos < data.Length - 1)
             {
                 pos++;
-                if (!MathHelper.isSimple(data[pos]))
+                if (!MathHelper.IsSimple(data[pos]))
                     {
                        return MoveNext();
                     }
