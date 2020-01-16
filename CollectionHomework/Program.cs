@@ -11,7 +11,7 @@ namespace CollectionHomework
         static void Main(string[] args)
         {
             var t = new TestCollection();
-            Console.WriteLine("This is the list of simple digits from random array [10]:");
+            Console.WriteLine("This is the list of simple digits from random int array [10]:");
             foreach (var item in t)
             {
                 if (item!=0)
