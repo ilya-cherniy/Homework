@@ -43,6 +43,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CollectionsLect", "Collecti
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CollectionHomework", "CollectionHomework\CollectionHomework.csproj", "{E2889A9E-6802-441E-A5B1-1BC766637CC0}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LectFive", "LectFive\LectFive.csproj", "{EFE04F67-FD85-429E-BE1A-2AFB5866C2E9}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -129,6 +131,10 @@ Global
 		{E2889A9E-6802-441E-A5B1-1BC766637CC0}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{E2889A9E-6802-441E-A5B1-1BC766637CC0}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{E2889A9E-6802-441E-A5B1-1BC766637CC0}.Release|Any CPU.Build.0 = Release|Any CPU
+		{EFE04F67-FD85-429E-BE1A-2AFB5866C2E9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{EFE04F67-FD85-429E-BE1A-2AFB5866C2E9}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{EFE04F67-FD85-429E-BE1A-2AFB5866C2E9}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{EFE04F67-FD85-429E-BE1A-2AFB5866C2E9}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
