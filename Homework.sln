@@ -45,6 +45,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CollectionHomework", "Colle
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LectFive", "LectFive\LectFive.csproj", "{EFE04F67-FD85-429E-BE1A-2AFB5866C2E9}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Lect5-2", "Lect5-2\Lect5-2.csproj", "{B01CB00A-96FF-4493-A898-4BB73E808D55}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -135,6 +137,10 @@ Global
 		{EFE04F67-FD85-429E-BE1A-2AFB5866C2E9}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{EFE04F67-FD85-429E-BE1A-2AFB5866C2E9}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{EFE04F67-FD85-429E-BE1A-2AFB5866C2E9}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B01CB00A-96FF-4493-A898-4BB73E808D55}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B01CB00A-96FF-4493-A898-4BB73E808D55}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B01CB00A-96FF-4493-A898-4BB73E808D55}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B01CB00A-96FF-4493-A898-4BB73E808D55}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
