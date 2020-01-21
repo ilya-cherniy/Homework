@@ -11,8 +11,8 @@ namespace LectFive
     {
         static void Main(string[] args)
         {
-           const string path = @"C:\Work\test.txt";
-            //FileInfo file = new FileInfo(path);
+            //const string path = @"C:\Work\test.txt";
+            FileInfo file = new FileInfo(path);
 
             //if (file.Exists)
             //{
@@ -35,37 +35,37 @@ namespace LectFive
             //    Console.WriteLine($"File size: {file.Length}");
             //}
             //file.CopyTo(@"C:\Work\test2.txt", true);
-            //const string path = @"C:\Work\New folder";
+            const string path = @"C:\Work\New folder";
 
-            //if (Directory.Exists(path))
-            //{
-            //    //Directory.Move(path, @"C:\Work\222\Test");
-            //    var dir = Directory.GetDirectories(path);
-            //    foreach (var item in dir)
-            //    {
-            //        //Console.WriteLine(item);
-            //    }
-            //    //Console.WriteLine();
-            //    //Console.WriteLine();
-            //    //Console.WriteLine();
-            //    //Console.WriteLine();
-            //    var files = Directory.GetFiles(path);
-            //    foreach (var item in files)
-            //    {
-            //        //Console.WriteLine(item);
-            //    }
-            //    DirectoryInfo di = new DirectoryInfo(path);
-            //    if (di.Exists)
-            //    {
-            //        var dirss = di.GetDirectories();
-            //        foreach (var item in dirss)
-            //        {
-            //            Console.WriteLine(item);
-            //        }
-            //    }
-            //    //remove directory with all data inside
-            //    //di.Delete(true);
-            //}
+            if (Directory.Exists(path))
+            {
+                //Directory.Move(path, @"C:\Work\222\Test");
+                var dir = Directory.GetDirectories(path);
+                foreach (var item in dir)
+                {
+                    //Console.WriteLine(item);
+                }
+                //Console.WriteLine();
+                //Console.WriteLine();
+                //Console.WriteLine();
+                //Console.WriteLine();
+                var files = Directory.GetFiles(path);
+                foreach (var item in files)
+                {
+                    //Console.WriteLine(item);
+                }
+                DirectoryInfo di = new DirectoryInfo(path);
+                if (di.Exists)
+                {
+                    var dirss = di.GetDirectories();
+                    foreach (var item in dirss)
+                    {
+                        Console.WriteLine(item);
+                    }
+                }
+                //remove directory with all data inside
+                //di.Delete(true);
+            }
 
             //var drives = DriveInfo.GetDrives();
             //foreach (var drive in drives)
