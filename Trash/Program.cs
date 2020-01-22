@@ -38,7 +38,7 @@ namespace Trash
         {
             var di = new DirectoryInfo(startDir);
             var fsItems = di.GetFileSystemInfos()
-                //.Where(f => DateTime.Now.Subtract(f.CreationTime).TotalDays <= 14) // 14 days
+                .Where(f => DateTime.Now.Subtract(f.CreationTime).TotalDays <= 14) // 14 days
                 //.OrderBy(f => f.Name)
                 .ToList();
 

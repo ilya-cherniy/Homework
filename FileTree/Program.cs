@@ -1,9 +1,6 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.IO;
-using System.Linq;
 using System.Text;
-using System.Threading.Tasks;
 
 namespace FileTree
 {
@@ -11,11 +8,20 @@ namespace FileTree
     {
         static void Main(string[] args)
         {
-            //string startDir = Environment.GetFolderPath(Environment.SpecialFolder.UserProfile);
-            string path = @"C:\Work\Pfister";
-            PrintTree(path);
+            string path = Environment.GetFolderPath(Environment.SpecialFolder.UserProfile);
+            string filePath = Environment.GetFolderPath(Environment.SpecialFolder.Desktop)+"\\Chornyi.txt";
 
-            void PrintTree(string startDir, string prefix = "")
+            CreateTree(path);
+
+            void WriteToFile(string data)
+            {
+                using (StreamWriter sw = new StreamWriter(filePath, true, Encoding.Default))
+                {
+                    sw.WriteLine(data);
+                }
+            }
+
+            void CreateTree(string startDir, string prefix = "")
             {
                 var dir = new DirectoryInfo(startDir);
                 FileInfo[] files = dir.GetFiles();
@@ -24,29 +30,39 @@ namespace FileTree
                 int dirCount = subdirs.Length;
 
                 for (int j = 0; j < dirCount; j++)
-                {
-                    if (j == dirCount - 1)
-                    {
-                        Console.WriteLine(prefix + "└── " + subdirs[j].Name);
-                        PrintTree(subdirs[j].FullName, prefix + "    ");
+                  {
+                      try
+                       {
+                           if (j == dirCount - 1)
+                           {
+                               WriteToFile(prefix + "|___ " + subdirs[j].Name);
+                               CreateTree(subdirs[j].FullName, prefix + "    ");
+                            }
+                            else
+                            {
+                               WriteToFile(prefix + "|--- " + subdirs[j].Name);
+                               CreateTree(subdirs[j].FullName, prefix + "|   ");
+                            }
+                        }
+                        catch
+                        {
+                            return;
+                        }
                     }
-                    else
+                    for (int i = 0; i < fCount; i++)
                     {
-                        Console.WriteLine(prefix + "├── " + subdirs[j].Name);
-                        PrintTree(subdirs[j].FullName, prefix + "│   ");
+                        if (DateTime.Now.Subtract(files[i].CreationTime).TotalDays <= 14)
+                        {
+                            if (i == fCount - 1)
+                            {
+                               WriteToFile(prefix + "|___ " + files[i].Name);
+                            }
+                            else
+                            {
+                               WriteToFile(prefix + "|--- " + files[i].Name);
+                            }
+                        }
                     }
-                }
-                for (int i = 0; i < fCount; i++)
-                {
-                    if (i == fCount - 1)
-                    {
-                        Console.WriteLine(prefix + "└── " + files[i].Name);
-                    }
-                    else
-                    {
-                        Console.WriteLine(prefix + "├── " + files[i].Name);
-                    }
-                }
             }
         }
     }
