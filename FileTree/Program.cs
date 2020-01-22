@@ -15,90 +15,39 @@ namespace FileTree
             string path = @"C:\Work\Pfister";
             PrintTree(path);
 
-            void PrintTree(string startDir)
+            void PrintTree(string startDir, string prefix = "")
             {
-                var dirs = new DirectoryInfo(startDir);
-                foreach (var item in dirs.GetDirectories())
+                var dir = new DirectoryInfo(startDir);
+                FileInfo[] files = dir.GetFiles();
+                DirectoryInfo[] subdirs = dir.GetDirectories();
+                int fCount = files.Length;
+                int dirCount = subdirs.Length;
+
+                for (int j = 0; j < dirCount; j++)
                 {
-                    Console.WriteLine("├── "+item.Name);
-                    foreach (var file in item.GetFiles())
+                    if (j == dirCount - 1)
                     {
-                        Console.WriteLine("   ├── "+file.Name);
+                        Console.WriteLine(prefix + "└── " + subdirs[j].Name);
+                        PrintTree(subdirs[j].FullName, prefix + "    ");
                     }
-                 PrintTree(item.FullName);
-                    
+                    else
+                    {
+                        Console.WriteLine(prefix + "├── " + subdirs[j].Name);
+                        PrintTree(subdirs[j].FullName, prefix + "│   ");
+                    }
                 }
-
-                //var rootFiles = new DirectoryInfo(startDir);
-                //foreach (var rootFile in rootFiles.GetFiles())
-                //{
-                //    Console.WriteLine(rootFile.Name);
-                //}
-                //var rootFiles = Directory.GetFiles(startDir);
-                //foreach (var item in rootFiles)
-                //{
-                //    Console.WriteLine(item);
-                //}
+                for (int i = 0; i < fCount; i++)
+                {
+                    if (i == fCount - 1)
+                    {
+                        Console.WriteLine(prefix + "└── " + files[i].Name);
+                    }
+                    else
+                    {
+                        Console.WriteLine(prefix + "├── " + files[i].Name);
+                    }
+                }
             }
-
-            ////Console.WriteLine("GetFolderPath: {0}", path);
-            //DirectoryInfo dir = new DirectoryInfo(path);
-            // foreach (var item in dir.GetDirectories())
-            // {
-            //     Console.WriteLine(item.Name);
-            //     foreach (var sub in item.GetDirectories())
-            //     {
-            //         Console.WriteLine(sub.Name);
-            //         Console.WriteLine();
-            //     }
-            // }
-            //foreach (var item in dir.GetFiles())
-            // {
-            //     Console.WriteLine(item.Name);
-            // }
-            // PrintTree(startDir);
-            //}
-            //public static bool IsDirectory(this FileSystemInfo fsItem)
-            //{
-            //    return (fsItem.Attributes & FileAttributes.Directory) == FileAttributes.Directory;
-            //}
-            //static void PrintTree(string startDir, string prefix = "")
-            //{
-            //    var di = new DirectoryInfo(startDir);
-            //    var fsItems = di.GetFileSystemInfos()
-            //        //.Where(f => DateTime.Now.Subtract(f.CreationTime).TotalDays <= 14) // 14 days
-            //        //.OrderBy(f => f.Name)
-            //        .ToList();
-
-            //    for (int i = 0; i < fsItems.Count; i++)
-            //    {
-
-            //        var fsItem = fsItems[i];
-
-            //        if (i == fsItems.Count - 1)
-            //        {
-            //            Console.Write(prefix + "└── ");
-            //            Console.WriteLine(fsItem);
-            //            //Console.WriteLine();
-            //            if (fsItem.IsDirectory())
-            //            {
-            //                PrintTree(fsItem.FullName, prefix + "    ");
-            //            }
-            //        }
-            //        else
-            //        {
-            //            Console.Write(prefix + "├── ");
-            //            Console.WriteLine(fsItem);
-            //            //Console.WriteLine();
-            //            if (fsItem.IsDirectory())
-            //            {
-            //                PrintTree(fsItem.FullName, prefix + "│   ");
-            //            }
-            //        }
-
-
-            //    }
-            //}
         }
     }
 }
