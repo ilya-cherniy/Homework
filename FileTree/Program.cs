@@ -12,7 +12,7 @@ namespace FileTree
         static void Main(string[] args)
         {
             //string startDir = Environment.GetFolderPath(Environment.SpecialFolder.UserProfile);
-            string path = @"D:\Programming Net";
+            string path = @"C:\Work\Pfister";
             PrintTree(path);
 
             void PrintTree(string startDir)
