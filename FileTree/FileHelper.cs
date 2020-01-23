@@ -10,6 +10,7 @@ namespace FileTree
 
         string source = Environment.GetFolderPath(Environment.SpecialFolder.Desktop) + "\\Chornyi.txt";
         string archivePath = Environment.GetFolderPath(Environment.SpecialFolder.Desktop) + "\\Chornyi.gz";
+        
         public static void WriteToFile(string data)
         {
             string filePath = Environment.GetFolderPath(Environment.SpecialFolder.Desktop) + "\\Chornyi.txt";
@@ -19,18 +20,13 @@ namespace FileTree
             }
         }
 
-        //public static bool IsAccessible(DirectoryInfo dir)
-        //{
-        //    try
-        //    {
-        //        DirectoryInfo access = dir.GetAccessControl;
-        //        return true;
-        //    }
-        //    catch
-        //    {
-        //        return false;
-        //    }
-        //}
+        public static bool IsFileValid (FileInfo file, int daysOld)
+        {
+            if (DateTime.Now.Subtract(file.CreationTime).TotalDays <= daysOld)
+                return true;
+            else
+                return false;
+        }
 
         public static void CompressAndDeleteSource(string source, string archivePath)
         {

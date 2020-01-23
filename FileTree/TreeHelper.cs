@@ -10,22 +10,26 @@ namespace FileTree
             var dir = new DirectoryInfo(startDir);
             FileInfo[] files = dir.GetFiles();
             DirectoryInfo[] subdirs = dir.GetDirectories();
-            int fCount = files.Length;
-            int dirCount = subdirs.Length;
 
-            for (int j = 0; j < dirCount; j++)
+            for (int j = 0; j < subdirs.Length; j++)
             {
                 try
                 {
-                    if (j == dirCount - 1)
+                    if (j == subdirs.Length - 1)
                     {
-                        FileHelper.WriteToFile(prefix + "|___ " + subdirs[j].Name);
-                        CreateTree(subdirs[j].FullName, prefix + "    ");
+                        if (DirectoryHelper.HasValidFiles(subdirs[j], daysOld))
+                        {
+                            FileHelper.WriteToFile(prefix + "|___ " + subdirs[j].Name);
+                            CreateTree(subdirs[j].FullName, prefix + "    ");
+                        }
                     }
                     else
                     {
-                        FileHelper.WriteToFile(prefix + "|--- " + subdirs[j].Name);
-                        CreateTree(subdirs[j].FullName, prefix + "|   ");
+                        if (DirectoryHelper.HasValidFiles(subdirs[j], daysOld))
+                        {
+                            FileHelper.WriteToFile(prefix + "|--- " + subdirs[j].Name);
+                            CreateTree(subdirs[j].FullName, prefix + "|   ");
+                        }
                     }
                 }
                 catch (UnauthorizedAccessException)
@@ -33,20 +37,22 @@ namespace FileTree
                     continue;
                 }
             }
-            for (int i = 0; i < fCount; i++)
+            for (int i = 0; i < files.Length; i++)
             {
                 try
                 {
-                    if (DateTime.Now.Subtract(files[i].CreationTime).TotalDays <= daysOld)
+                    if (FileHelper.IsFileValid(files[i],daysOld))
                     {
-                        if (i == fCount - 1)
-                        {
+                        if (i == files.Length - 1)
+                            if (FileHelper.IsFileValid(files[i], daysOld))
+                            {
                             FileHelper.WriteToFile(prefix + "|___ " + files[i].Name);
-                        }
+                            }
                         else
-                        {
+                            if (FileHelper.IsFileValid(files[i], daysOld))
+                            {
                             FileHelper.WriteToFile(prefix + "|--- " + files[i].Name);
-                        }
+                            }
                     }
                 }
                 catch (UnauthorizedAccessException)

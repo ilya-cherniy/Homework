@@ -8,10 +8,10 @@ namespace FileTree
         {
             string path = Environment.GetFolderPath(Environment.SpecialFolder.UserProfile);
             string source = Environment.GetFolderPath(Environment.SpecialFolder.Desktop) + "\\Chornyi.txt";
-            string archivePath = Environment.GetFolderPath(Environment.SpecialFolder.Desktop) + "\\Chornyi.gz";
+            string archivePath = Environment.GetFolderPath(Environment.SpecialFolder.Desktop) + "\\Chornyi.zip";
 
             TreeHelper.CreateTree(path);
-            FileHelper.CompressAndDeleteSource(source, archivePath);
+            //FileHelper.CompressAndDeleteSource(source, archivePath);
         }
     }
 }
