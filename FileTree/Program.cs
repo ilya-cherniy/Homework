@@ -1,4 +1,5 @@
 ﻿using System;
+using System.IO;
 
 namespace FileTree
 {
@@ -8,10 +9,12 @@ namespace FileTree
         {
             string path = Environment.GetFolderPath(Environment.SpecialFolder.UserProfile);
             string source = Environment.GetFolderPath(Environment.SpecialFolder.Desktop) + "\\Chornyi.txt";
-            string archivePath = Environment.GetFolderPath(Environment.SpecialFolder.Desktop) + "\\Chornyi.zip";
-
+            string archivePath = Environment.GetFolderPath(Environment.SpecialFolder.Desktop) + "\\Chornyi.gz";
+            var rootDir = new DirectoryInfo(path);
+            
+            FileHelper.WriteToFile(rootDir.Name);
             TreeHelper.CreateTree(path);
-            //FileHelper.CompressAndDeleteSource(source, archivePath);
+            FileHelper.CompressAndDeleteSource(source, archivePath);
         }
     }
 }

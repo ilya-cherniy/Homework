@@ -15,20 +15,22 @@ namespace FileTree
             {
                 try
                 {
-                    if (j == subdirs.Length - 1)
+                    if (DirectoryHelper.HasValidFiles(subdirs[j], daysOld))
                     {
-                        if (DirectoryHelper.HasValidFiles(subdirs[j], daysOld))
+
+                        if (j == subdirs.Length - 1)
                         {
-                            FileHelper.WriteToFile(prefix + "|___ " + subdirs[j].Name);
-                            CreateTree(subdirs[j].FullName, prefix + "    ");
+                            {
+                                FileHelper.WriteToFile(prefix + "|___ " + subdirs[j].Name);
+                                CreateTree(subdirs[j].FullName, prefix + "    ");
+                            }
                         }
-                    }
-                    else
-                    {
-                        if (DirectoryHelper.HasValidFiles(subdirs[j], daysOld))
+                        else
                         {
-                            FileHelper.WriteToFile(prefix + "|--- " + subdirs[j].Name);
-                            CreateTree(subdirs[j].FullName, prefix + "|   ");
+                            {
+                                FileHelper.WriteToFile(prefix + "|--- " + subdirs[j].Name);
+                                CreateTree(subdirs[j].FullName, prefix + "|   ");
+                            }
                         }
                     }
                 }
@@ -41,18 +43,16 @@ namespace FileTree
             {
                 try
                 {
-                    if (FileHelper.IsFileValid(files[i],daysOld))
+                    if (FileHelper.IsFileValid(files[i], daysOld))
                     {
                         if (i == files.Length - 1)
-                            if (FileHelper.IsFileValid(files[i], daysOld))
-                            {
+                        {
                             FileHelper.WriteToFile(prefix + "|___ " + files[i].Name);
-                            }
-                        else
-                            if (FileHelper.IsFileValid(files[i], daysOld))
-                            {
+                        }
+                    else
+                        {
                             FileHelper.WriteToFile(prefix + "|--- " + files[i].Name);
-                            }
+                        }
                     }
                 }
                 catch (UnauthorizedAccessException)

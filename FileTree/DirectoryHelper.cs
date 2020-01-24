@@ -12,8 +12,7 @@ namespace FileTree
         public static bool HasValidFiles (DirectoryInfo dir, int daysOld)
         {
             FileInfo[] files = dir.GetFiles();
-            int fCount = files.Length;
-            for (int i = 0; i < fCount; i++)
+            for (int i = 0; i < files.Length; i++)
             {
                 if (FileHelper.IsFileValid(files[i], daysOld))
                 {

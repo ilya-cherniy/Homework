@@ -22,7 +22,7 @@ namespace FileTree
 
         public static bool IsFileValid (FileInfo file, int daysOld)
         {
-            if (DateTime.Now.Subtract(file.CreationTime).TotalDays <= daysOld)
+            if (DateTime.Now.Subtract(file.LastWriteTime).TotalDays <= daysOld)
                 return true;
             else
                 return false;
