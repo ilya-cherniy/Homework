@@ -15,22 +15,20 @@ namespace FileTree
             {
                 try
                 {
-                    if (DirectoryHelper.HasValidFiles(subdirs[j], daysOld))
+                    if (j == subdirs.Length - 1)
                     {
-
-                        if (j == subdirs.Length - 1)
+                        if (DirectoryHelper.HasValidFiles(subdirs[j], daysOld))
                         {
-                            {
-                                FileHelper.WriteToFile(prefix + "|___ " + subdirs[j].Name);
-                                CreateTree(subdirs[j].FullName, prefix + "    ");
-                            }
+                            FileHelper.WriteToFile(prefix + "|___ " + subdirs[j].Name);
+                            CreateTree(subdirs[j].FullName, prefix + "    ");
                         }
-                        else
+                    }
+                    else
+                    {
+                        if (DirectoryHelper.HasValidFiles(subdirs[j], daysOld))
                         {
-                            {
-                                FileHelper.WriteToFile(prefix + "|--- " + subdirs[j].Name);
-                                CreateTree(subdirs[j].FullName, prefix + "|   ");
-                            }
+                            FileHelper.WriteToFile(prefix + "|--- " + subdirs[j].Name);
+                            CreateTree(subdirs[j].FullName, prefix + "|   ");
                         }
                     }
                 }

@@ -7,10 +7,6 @@ namespace FileTree
 {
     public class FileHelper
     {
-
-        string source = Environment.GetFolderPath(Environment.SpecialFolder.Desktop) + "\\Chornyi.txt";
-        string archivePath = Environment.GetFolderPath(Environment.SpecialFolder.Desktop) + "\\Chornyi.gz";
-        
         public static void WriteToFile(string data)
         {
             string filePath = Environment.GetFolderPath(Environment.SpecialFolder.Desktop) + "\\Chornyi.txt";

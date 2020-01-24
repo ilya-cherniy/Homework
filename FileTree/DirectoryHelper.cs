@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.IO;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.IO;
 
 namespace FileTree
 {
@@ -15,6 +10,14 @@ namespace FileTree
             for (int i = 0; i < files.Length; i++)
             {
                 if (FileHelper.IsFileValid(files[i], daysOld))
+                {
+                    return true;
+                }
+            }
+            DirectoryInfo[] subdirs = dir.GetDirectories();
+            for (int i = 0; i < subdirs.Length; i++)
+            {
+                if (HasValidFiles(subdirs[i], daysOld))
                 {
                     return true;
                 }
