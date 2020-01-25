@@ -21,9 +21,8 @@ namespace EmailRegex
                 @"@(([0-9a-zA-Z][-\w]*[0-9a-zA-Z]*\.)+[a-zA-Z0-9]{2,17})$";
 
             string[] emails = File.ReadAllLines(source);
-
-
-            Console.WriteLine("Your file contains following list of CORRECT and INCORRECT emails:");
+            Console.WriteLine(emails.Length + " emails have been verified");
+            Console.WriteLine("------------------------------------------");
             foreach (string email in emails)
             {
                 if (Regex.IsMatch(email, pattern))
@@ -32,17 +31,10 @@ namespace EmailRegex
                 }
                 else
                 {
-                    WriteColored("INCORRECT", ConsoleColor.Red);
+                    ConsoleHelper.WriteColored("INCORRECT", ConsoleColor.Red);
                     Console.WriteLine(" " + email);
                 }
             }
-        }
-        public static void WriteColored(string s, ConsoleColor color)
-        {
-            var prevColor = Console.ForegroundColor;
-            Console.ForegroundColor = color;
-            Console.Write(s);
-            Console.ForegroundColor = prevColor;
         }
     }
 }
