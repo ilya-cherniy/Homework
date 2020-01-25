@@ -53,6 +53,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Trash", "Trash\Trash.csproj
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Lect5-2-2", "Lect5-2-2\Lect5-2-2.csproj", "{A30D5921-C5BA-430C-85B3-03031CF5794B}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DBAPP", "DBAPP\DBAPP.csproj", "{81841EDA-A3BB-41F8-84F7-025F59572B82}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -159,6 +161,10 @@ Global
 		{A30D5921-C5BA-430C-85B3-03031CF5794B}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{A30D5921-C5BA-430C-85B3-03031CF5794B}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{A30D5921-C5BA-430C-85B3-03031CF5794B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{81841EDA-A3BB-41F8-84F7-025F59572B82}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{81841EDA-A3BB-41F8-84F7-025F59572B82}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{81841EDA-A3BB-41F8-84F7-025F59572B82}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{81841EDA-A3BB-41F8-84F7-025F59572B82}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
