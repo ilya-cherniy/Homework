@@ -92,7 +92,7 @@ namespace Lect5_2
 
             //Compress(source, commpressed);
             //Decompress(commpressed, destination);
-            
+
             //Format string
             //var n = 24.15;
             //var t = 123;
